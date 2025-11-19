@@ -1,4 +1,4 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Model;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,27 +31,6 @@ public abstract class Paciente{
         this.doencas = new ArrayList<>();
     }
 
-    // -> métodos para adicionar informações posteriomente
-    public void adicionarSintoma(String sintoma) {
-        this.sintomas.add(sintoma);
-        System.out.println("sintoma " + sintoma + " adicionado para o paciente " + this.nome);
-    }
-
-    public void adicionarHistorico(Historico historico) {
-        this.historico.add(historico);
-        System.out.println("historico adicionado para o paciente " + this.nome);
-    }
-
-    public void adicionarDiagnostico(Diagnostico diagnostico){
-        this.diagnostico.add(diagnostico);
-        System.out.println("diagnostico adicionado para o paciente " + this.nome);
-    }
-
-    public void adicionarDoenas(String doenca){
-        this.doencas.add(doenca);
-        System.out.println("doenca: " + doenca + "para o paciente " + this.nome);
-    }
-
     // -> getters para acessar informações
     public String getNome(){
         return nome;
@@ -68,7 +47,7 @@ public abstract class Paciente{
         return peso;
     }   
 
-    // -> getters para as listas (NECESSÁRIOS PARA O MENU FUNCIONAR)
+    // -> getters para as listas
     public List<Historico> getHistorico() {
         return this.historico;
     }
@@ -77,50 +56,49 @@ public abstract class Paciente{
         return this.diagnostico;
     }
 
-    // -> get abstrato
-    public abstract String getEspecie();
-
-    // Método que exibe o cadastro completo do paciente
-    public String getInfoCompleta() {
-        return "Ficha do paciente:\n" + 
-                " - Nome: " + nome + "\n" +
-                " - Espécie: " + this.getEspecie() + "\n" +
-                " - Raça: " + raca + "\n" +
-                " - Idade: " + idade + " anos\n" +
-                " - Peso: " + peso + " kg\n" +
-                " - Sintomas Registrados: " + (sintomas.isEmpty() ? "Nenhum" : sintomas);
+    public List<String> getSintomas(){
+        return this.sintomas;
     }
     
-    // -> métodos que atualizam o cadastro do paciente com infomações que mudam com o tempo
-        //idade
-    public void setIdade(int NovaIdade){
-        this.idade = NovaIdade;
-        System.out.println("Idade de "+ this.nome + " atualizada para " + NovaIdade + " anos");
-    }
-        //peso
-    public void setPeso(float NovoPeso){
-        this.peso = NovoPeso;
-        System.out.println("Peso de "+ this.nome + " atualizada para " + NovoPeso + " kg");
+    public List<String> getDoencas(){
+        return this.doencas;
     }
 
-// -> método toString() atualizado para usar o método abstrato
+    // -> get abstrato
+    public abstract String getEspecie();
+    
+    // -> métodos que atualizam o cadastro do paciente com infomações que mudam com o tempo
+    public void setIdade(int NovaIdade){
+        this.idade = NovaIdade;
+    }
+
+    public void setPeso(float NovoPeso){
+        this.peso = NovoPeso;
+    }
+
+    // -> métodos para adicionar elementos no atríbutos lista
+    public void adicionarDoenca(String doenca){
+        this.doencas.add(doenca);
+    }
+    
+    public void adicionarSintomas(String sintoma){
+        this.sintomas.add(sintoma);
+    }
+    
+    public void adicionarHistorico(Historico historico){
+        this.historico.add(historico);
+    }
+
+    public void adicionarDiagnostico(Diagnostico diagnostico){
+        this.diagnostico.add(diagnostico);
+    }
+
+    // -> método toString() atualizado para usar o método abstrato
     @Override
     public String toString(){
         return this.nome + " (" + this.getEspecie() + ")";
     }
 
-// -> método que lista os sintomas atuais do paciente
-   public void listarSintomas(){
-        System.out.println("--- sintomas do paciente: " +  this.nome + " ---");
-        if(this.sintomas.isEmpty()){
-            System.out.println("Nenhum sintoma registrado.");
-        }
-        else{
-            for(int i = 0; i < this.sintomas.size(); i++){
-                System.out.println("- " + this.sintomas.get(i));
-            }
-        }
-   }
    /**
      * Remove um registro de histórico da lista deste paciente.
      */
@@ -128,6 +106,20 @@ public abstract class Paciente{
         this.historico.remove(registro);
     }
 
+    /**
+     * Remove um sintoma da lista de sintomas do paciente 
+    */
+    public void removerSintoma(String sintoma){
+        this.sintomas.remove(sintoma);
+    }
+
+    /**
+     * Remove uma doença da lista de doenças do paciente. 
+     */
+    public void removerDoenca(String doenca){
+        this.doencas.remove(doenca);
+    }
+    
     /**
      * Remove um registro de diagnóstico da lista deste paciente.
      */

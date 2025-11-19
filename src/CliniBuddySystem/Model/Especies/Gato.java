@@ -1,6 +1,6 @@
-package CliniBuddySystem.Especies;
+package CliniBuddySystem.Model.Especies;
 
-import CliniBuddySystem.Paciente;
+import CliniBuddySystem.Model.*;
 
 public class Gato extends Paciente{
 

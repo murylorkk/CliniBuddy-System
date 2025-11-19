@@ -1,4 +1,4 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Model;
 
 import  java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,31 +29,6 @@ public Info(LocalDateTime data, String veterinarioResponsavel, String observacoe
     }
 
     // --- Métodos ---
-
-    /**
-     * exibe as informações do registro usando um template.
-     * este método não pode ser sobrescrito (final).
-     */
-    public final void exibir() {
-        System.out.println("\n--- Ficha de Registro (ID: " + this.id + ") ---");
-        System.out.println("  - Data do Registro: " + this.data);
-        System.out.println("  - Veterinário Responsável: " + this.veterinarioResponsavel);
-        
-        // chamada para o método que exibe os detalhes específicos de cada subclasse
-        exibirDetalhes(); 
-        
-        if (observacoes != null && !observacoes.trim().isEmpty()) {
-            System.out.println("  - Observações Adicionais: " + this.observacoes);
-        }
-        System.out.println("------------------------------------");
-    }
-
-    /**
-     * método abstrato que força as subclasses a implementarem a exibição
-     * de seus próprios detalhes.
-     */
-    protected abstract void exibirDetalhes();
-
     // -> getters
     public int getId() {
         return id;
@@ -69,6 +44,10 @@ public Info(LocalDateTime data, String veterinarioResponsavel, String observacoe
 
     public String getObservacoes() {
         return observacoes;
+    }
+    
+    public void setObservacoes(String observacoes){
+        this.observacoes = observacoes;
     }
     
     @Override

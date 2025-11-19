@@ -1,4 +1,4 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Model;
 
 public class Diagnostico extends Info{
     private String doenca;
@@ -20,19 +20,36 @@ public class Diagnostico extends Info{
         this(veterinarioResponsavel, doenca, descricao, tratamentoSugerido, riscos, "");
     }
     
+    // -> getters
+    public String getDescricao(){
+        return descricao;
+    }
+    
+    public String getTratamentoSug(){
+        return tratamentoSugerido;
+    }
+
+    public String getRiscos(){
+        return riscos;
+    }
+    
+    // -> setters
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
+    }
+
+    public void setTratamento(String tratamento){
+        this.tratamentoSugerido = tratamento;
+    }
+
+    public void setRiscos(String riscos){
+        this.riscos = riscos;
+    }
+    
     // -> método toString() para facilitar a visualização em listas.
     @Override
     public String toString() {
         return "Diagnóstico: " + this.doenca + "(em: "+ super.getDataFormatada() + ")";
     }
 
-   // -> método abstrato para exibir apenas seus detalhes
-    @Override
-    protected void exibirDetalhes() {
-        System.out.println("  - Tipo de Registro: Diagnóstico Clínico");
-        System.out.println("  - Doença: " + this.doenca);
-        System.out.println("  - Descrição: " + this.descricao);
-        System.out.println("  - Tratamento Sugerido: " + this.tratamentoSugerido);
-        System.out.println("  - Riscos Associados: " + this.riscos);
-    }
 }

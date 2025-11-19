@@ -1,4 +1,4 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -8,28 +8,22 @@ public class Agendamento extends Info{
     private String motivo;
     private LocalDate data;
     private LocalTime horario;
-    private String status;
 
-    public Agendamento(Paciente paciente, LocalDate data, LocalTime horario, String veterinarioResponsavel, String motivo, String status) {
+    public enum statusAgendamento{
+        AGENDADO,
+        CONFIRMADO,
+        CANCELADO,
+        REALIZADO
+    }
+    statusAgendamento status;
+
+    public Agendamento(Paciente paciente, LocalDate data, LocalTime horario, String veterinarioResponsavel, String motivo, statusAgendamento status) {
         super(veterinarioResponsavel, "");
         this.paciente = paciente;
         this.data = data;
         this.horario = horario;
         this.motivo = motivo;
         this.status = status;
-    }
-
-
-    //método que exibe detalhes do agendamento
-    @Override
-    protected void exibirDetalhes(){
-        System.out.println(" ----- Agendamento ------ ");
-        System.out.println(" Paciente: " + paciente.getNome() + " | "
-                + paciente.getEspecie() + " | "
-                + paciente.getRaca());
-        System.out.println(" Data: " + data + " | Horário: " + horario);
-        System.out.println(" Motivo: " + motivo);
-        System.out.println(" Status: " + status);
     }
 
     // -> getters
@@ -45,7 +39,7 @@ public class Agendamento extends Info{
         return horario;
     }
     
-    public String getStatus(){
+    public statusAgendamento getStatus(){
         return status;
     }
 
@@ -62,7 +56,7 @@ public class Agendamento extends Info{
         this.horario = horario;
     }
     
-    public void setStatus(String status){
+    public void setStatus(statusAgendamento status){
         this.status = status;
     }
 

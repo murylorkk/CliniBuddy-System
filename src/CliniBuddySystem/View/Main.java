@@ -1,4 +1,7 @@
-package CliniBuddySystem;
+package CliniBuddySystem.View;
+
+import CliniBuddySystem.Model.*;
+import CliniBuddySystem.Controller.*;
 
 public class Main{
     public static void main(String[] args) {

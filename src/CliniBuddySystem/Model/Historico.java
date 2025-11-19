@@ -1,4 +1,4 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Model;
 
 public class Historico extends Info{
     // atributos únicos da classe histórico
@@ -16,15 +16,6 @@ public class Historico extends Info{
     // -> método construtor auxiliar SEM observações
     public Historico(String veterinarioResponsavel, String acompanhante, float temperatura){
         this(veterinarioResponsavel, acompanhante, temperatura,"");
-    }
-
-
-     // -> método abstrato para exibir apenas seus detalhes
-    @Override
-    protected void exibirDetalhes() {
-        System.out.println("  - Tipo de Registro: Histórico de Consulta");
-        System.out.println("  - Acompanhante: " + this.acompanhante);
-        System.out.println("  - Temperatura Aferida: " + this.temperatura + "°C");
     }
 
     // -> método toString() para exibição limpa em listas.

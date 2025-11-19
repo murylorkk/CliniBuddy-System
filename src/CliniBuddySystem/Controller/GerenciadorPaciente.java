@@ -1,6 +1,9 @@
-package CliniBuddySystem;
+package CliniBuddySystem.Controller;
 
-import CliniBuddySystem.Especies.*;
+import CliniBuddySystem.Model.*;
+import CliniBuddySystem.Model.Especies.*;
+import CliniBuddySystem.Model.Especies.Cachorro.*;
+
 import java.util.List;
 
 /**
@@ -23,16 +26,16 @@ import java.util.List;
      */
     public Paciente cadastrarGato(String nome, String raca, int idade, float peso) {
         Paciente novoPaciente = new Gato(nome, raca, idade, peso);
-        this.clinica.getListaDePacientes().add(novoPaciente);
+        this.clinica.adicionarPaciente(novoPaciente);
         return novoPaciente;
     }
 
     /**
      * lógica de negócio para criar e salvar um cachorro.
      */
-    public Paciente cadastrarCachorro(String nome, String raca, int idade, float peso, String porte) {
+    public Paciente cadastrarCachorro(String nome, String raca, int idade, float peso, porteCachorro porte) {
         Paciente novoPaciente = new Cachorro(nome, raca, idade, peso, porte);
-        this.clinica.getListaDePacientes().add(novoPaciente);
+        this.clinica.adicionarPaciente(novoPaciente);
         return novoPaciente;
     }
 
@@ -50,7 +53,7 @@ import java.util.List;
      * Exclui um paciente da lista principal da clínica.
      */
     public void excluirPaciente(Paciente paciente) {
-        this.clinica.getListaDePacientes().remove(paciente);
+        this.clinica.removerPaciente(paciente);
     }
     
     /**
