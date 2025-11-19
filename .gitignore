@@ -1,0 +1,11 @@
+# Arquivos gerados pelo Java
+*.class
+
+# Pastas de saída da compilação
+/classes/
+/bin/
+/out/
+
+# Arquivos de IDEs 
+.vscode/
+*.iml
