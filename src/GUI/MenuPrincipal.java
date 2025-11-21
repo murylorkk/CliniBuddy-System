@@ -39,7 +39,7 @@ public class MenuPrincipal extends JFrame{
         new TelaDiagnosticos().setVisible(true);
     }
     private void gerenciarAgendamentos(){
-        new TelaAgendamento().setVisible(true);
+        new TelaAgendamentos().setVisible(true);
     }
     public static void main(String[] args){
         SwingUtilities.invokeLater(()->{
