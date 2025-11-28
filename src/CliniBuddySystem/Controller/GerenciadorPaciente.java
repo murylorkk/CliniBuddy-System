@@ -62,4 +62,8 @@ import java.util.List;
     public List<Paciente> getPacientes() {
         return this.clinica.getListaDePacientes();
     }
+
+    public Clinica getClinica(){
+        return clinica;
+    }
 }

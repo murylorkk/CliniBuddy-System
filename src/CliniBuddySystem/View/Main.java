@@ -1,7 +1,10 @@
 package CliniBuddySystem.View;
 
-import CliniBuddySystem.Model.*;
-import CliniBuddySystem.Controller.*;
+import CliniBuddySystem.Controller.GerenciadorAgendamento;
+import CliniBuddySystem.Controller.GerenciadorPaciente;
+import CliniBuddySystem.Controller.GerenciadorRegistros;
+import CliniBuddySystem.Model.Clinica;
+import CliniBuddySystem.View.GUI.JanelaBoasVindas;
 
 public class Main{
     public static void main(String[] args) {
@@ -14,10 +17,6 @@ public class Main{
         GerenciadorAgendamento ga = new GerenciadorAgendamento(minhaClinica);
         GerenciadorRegistros gr = new GerenciadorRegistros(minhaClinica);
 
-        // ---> 3.criação da instância do menu
-        Menu meuMenu = new Menu(minhaClinica, gp, ga, gr);
-
-        //inicia e exibe o menu
-        meuMenu.exibir();
+        new JanelaBoasVindas(minhaClinica);
     }
 }

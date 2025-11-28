@@ -2,9 +2,11 @@ package CliniBuddySystem.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // reformulação da classe paciente, pois ela se tornou uma classe abstrata
 public abstract class Paciente {
+
     // -> atributos gerais
     protected String nome;
     protected String raca;
@@ -127,5 +129,24 @@ public abstract class Paciente {
      */
     public void removerDiagnostico(Diagnostico registro) {
         this.diagnostico.remove(registro);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+
+                }if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Paciente paciente = (Paciente) o;
+
+        return Objects.equals(nome, paciente.nome) && Objects.equals(raca, paciente.raca);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, raca);
     }
 }

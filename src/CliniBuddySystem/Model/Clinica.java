@@ -1,14 +1,12 @@
-
 package CliniBuddySystem.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe MODELO (Model)
- * * esta classe armazena todos os dados de negócio da clínica.
- * ela não sabe como exibir menus ou ler dados do usuário.
- * ela apenas guarda e gerencia as listas de pacientes e agendamentos.
+ * Classe MODELO (Model) * esta classe armazena todos os dados de negócio da
+ * clínica. ela não sabe como exibir menus ou ler dados do usuário. ela apenas
+ * guarda e gerencia as listas de pacientes e agendamentos.
  */
 public class Clinica {
 
