@@ -1,0 +1,40 @@
+# ====================================
+# COMANDOS DE COMPILAÇÃO E OUTPUT 
+# = ====================================
+
+# 1. Arquivos compilados do Java (byte code)
+*.class
+
+# 2. Diretórios de Saída (Onde o 'javac -d' salva)
+# Isso impede que a pasta 'classes' seja rastreada
+/classes/
+
+# Pastas de saída comuns de IDEs/Builds (desnecessárias para o Git)
+/bin/
+/out/
+/target/
+
+
+# ====================================
+# ARTEFATOS DE AMBIENTE E IDE
+# ====================================
+
+# 1. Arquivos e Pastas de IDEs
+.idea/          # IntelliJ IDEA Project Files
+.vscode/        # Visual Studio Code Settings/Workspaces
+*.iml           # IntelliJ Module Files
+.classpath
+.project
+.settings/
+
+# 2. Arquivos de Log e Cache
+*.log
+*.lock
+/tmp/
+
+# 3. Arquivos Temporários e de Sistema Operacional
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
